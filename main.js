@@ -21,6 +21,9 @@ brush.onclick = function () {
     eraser.classList.remove('active')
 }
 
+clear.onclick = function () {
+    context.clearRect(0, 0, canvas.width, canvas.height)
+}
 save.onclick = function () {
     var url = canvas.toDataURL('image/png')
     var a = document.createElement('a')
@@ -29,6 +32,7 @@ save.onclick = function () {
     a.download = '画作'
     a.click()
 }
+
 
 black.onclick = function () {
     context.fillStyle = 'black'

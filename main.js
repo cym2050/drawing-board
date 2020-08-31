@@ -1,12 +1,27 @@
+
 var canvas = document.getElementById('canvas')
 var context = canvas.getContext('2d');
+
+setCanvasSize()
+window.onresize = function () {
+    setCanvasSize()
+}
+
+function setCanvasSize () {
+    var pageWidth = document.documentElement.clientWidth
+    var pageHeight = document.documentElement.clientHeight
+    canvas.width = pageWidth
+    canvas.height = pageHeight
+}
+
+
 
 // context.fillStyle = 'red'
 // context.strokeStyle = 'green'
 
-function drawCircle (x, y) {
+function drawCircle (x, y, radius) {
     context.beginPath()
-    context.arc(x, y, 5, 0, Math.PI*2)
+    context.arc(x, y, radius, 0, Math.PI*2)
     context.fill()
 }
 function drawLine (x1, y1, x2, y2, width = 10) {
@@ -32,7 +47,7 @@ canvas.onmousemove = function(e) {
     if (useing) {
         x = e.clientX
         y = e.clientY
-        drawCircle(x, y)
+        drawCircle(x, y, 5)
         drawLine(lastPosition.x, lastPosition.y, x, y)
         lastPosition = { x: x, y: y }
     }

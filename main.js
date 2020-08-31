@@ -21,6 +21,15 @@ brush.onclick = function () {
     eraser.classList.remove('active')
 }
 
+save.onclick = function () {
+    var url = canvas.toDataURL('image/png')
+    var a = document.createElement('a')
+    document.body.appendChild(a)
+    a.href = url
+    a.download = '画作'
+    a.click()
+}
+
 black.onclick = function () {
     context.fillStyle = 'black'
     context.strokeStyle = black
@@ -53,6 +62,24 @@ blue.onclick = function () {
     black.classList.remove('active')
     yellow.classList.remove('active')
 }
+
+var lineWidth = 5
+thin.onclick = function () {
+    lineWidth = 5;
+    thin.classList.add('active')
+    thick.classList.remove('active')
+}
+thick.onclick = function () {
+    lineWidth = 10;
+    thick.classList.add('active')
+    thin.classList.remove('active')
+}
+
+// colorInput.onclick = function (e) {
+//     console.log(e.target.value);
+//     context.fillStyle = String(e.target.value)
+//     context.strokeStyle = String(e.target.value)
+// }
 /**鼠标事件 */
 function listenToMouse () {
     var mousedown = false
@@ -66,7 +93,7 @@ function listenToMouse () {
             if (eraserEnabled) {
                 context.clearRect(x-5, y-5, 10, 10)
             } else {
-                drawCircle( x, y)
+                drawCircle( x, y, lineWidth/2)
                 lastPosition = { x: x, y: y }
             }
         }
@@ -78,8 +105,8 @@ function listenToMouse () {
             if (eraserEnabled) {
                 context.clearRect(x-5, y-5, 10, 10)
             } else {
-                drawCircle(x, y, 5)
-                drawLine(lastPosition.x, lastPosition.y, x, y)
+                drawCircle(x, y, lineWidth/2)
+                drawLine(lastPosition.x, lastPosition.y, x, y, lineWidth)
                 lastPosition = { x: x, y: y }
             }
         }
@@ -96,7 +123,7 @@ function listenToMouse () {
             if (eraserEnabled) {
                 context.clearRect(x-5, y-5, 10, 10)
             } else {
-                drawCircle( x, y)
+                drawCircle( x, y, lineWidth/2)
                 lastPosition = { x: x, y: y }
             }
         }
@@ -108,8 +135,8 @@ function listenToMouse () {
             if (eraserEnabled) {
                 context.clearRect(x-5, y-5, 10, 10)
             } else {
-                drawCircle(x, y, 5)
-                drawLine(lastPosition.x, lastPosition.y, x, y)
+                drawCircle(x, y, lineWidth/2)
+                drawLine(lastPosition.x, lastPosition.y, x, y, lineWidth)
                 lastPosition = { x: x, y: y }
             }
         }
@@ -143,7 +170,7 @@ function drawCircle (x, y, radius) {
     context.arc(x, y, radius, 0, Math.PI*2)
     context.fill()
 }
-function drawLine (x1, y1, x2, y2, width = 10) {
+function drawLine (x1, y1, x2, y2, width) {
     context.beginPath()
     context.lineWidth = width;
     context.moveTo(x1, y1)

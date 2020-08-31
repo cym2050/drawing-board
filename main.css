@@ -7,7 +7,6 @@ ul, ol { list-style: none;}
 
 #canvas {
     display: block;
-    background: blue;
 }
 .actions {
     position: fixed;

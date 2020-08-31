@@ -1,21 +1,56 @@
+* { margin: 0; padding: 0;}
+ul, ol { list-style: none;}
 
-body {
-    margin: 0;
-}
-
-#canvas {
-    display: block;
-    background: aqua;
-}
-
-#eraser {
-    position: absolute; 
-    top: 40px;
-    left: 10px;
-}
-
-#brush {
-    position: absolute; 
+.actions {
+    position: fixed;
     top: 10px;
     left: 10px;
 }
+
+.actions svg {
+    width: 1.5em;
+    height: 1.5em;
+    transition: all 0.5s;
+}
+
+.actions svg.active {
+    fill: red;
+    transform: scale(1.2);
+}
+
+.color {
+    margin-top: 10px;
+}
+
+.color li {
+    width: 20px;
+    height: 20px;
+    margin: 10px 0;
+    box-shadow: 0, 0, 3px, rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
+
+.color li.black {
+    background: black;
+}
+.color li.red {
+    background: red;
+}
+.color li.yellow {
+    background: yellow;
+}
+.color li.blue {
+    background: blue;
+}
+
+.color li.active {
+    transform: scale(1.3);
+}
+
+
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }

@@ -1,6 +1,5 @@
 
 var canvas = document.getElementById('canvas')
-var eraser = document.getElementById('eraser')
 var context = canvas.getContext('2d');
 
 // context.fillStyle = 'red'
@@ -10,8 +9,50 @@ listenToMouse()
 
 
 
+var eraserEnabled = false
+eraser.onclick = function () {
+    eraserEnabled = true 
+    eraser.classList.add('active')
+    brush.classList.remove('active')
+}
+brush.onclick = function () {
+    eraserEnabled = false
+    brush.classList.add('active')
+    eraser.classList.remove('active')
+}
 
-
+black.onclick = function () {
+    context.fillStyle = 'black'
+    context.strokeStyle = black
+    black.classList.add('active')
+    red.classList.remove('active')
+    yellow.classList.remove('active')
+    blue.classList.remove('active')
+}
+red.onclick = function () {
+    context.fillStyle = 'red'
+    context.strokeStyle = 'red'
+    red.classList.add('active')
+    black.classList.remove('active')
+    yellow.classList.remove('active')
+    blue.classList.remove('active')
+}
+yellow.onclick = function () {
+    context.fillStyle = 'yellow'
+    context.strokeStyle = 'yellow'
+    yellow.classList.add('active')
+    red.classList.remove('active')
+    black.classList.remove('active')
+    blue.classList.remove('active')
+}
+blue.onclick = function () {
+    context.fillStyle = 'blue'
+    context.strokeStyle = 'blue'
+    blue.classList.add('active')
+    red.classList.remove('active')
+    black.classList.remove('active')
+    yellow.classList.remove('active')
+}
 /**鼠标事件 */
 function listenToMouse () {
     var mousedown = false
@@ -80,10 +121,7 @@ function listenToMouse () {
 }
 
 
-var eraserEnabled = false
-eraser.onclick = function () {
-    eraserEnabled = !eraserEnabled
-}
+
 
 /**设置画布尺寸 */
 function autoSetCanvasSize () {

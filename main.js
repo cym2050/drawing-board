@@ -1,3 +1,6 @@
+document.querySelector('body').addEventListener('touchmove', function (ev) {
+    event.preventDefault();
+    }, {passive:false});
 
 var canvas = document.getElementById('canvas')
 var context = canvas.getContext('2d');

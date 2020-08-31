@@ -2,8 +2,13 @@
 body {
     overflow: hidden;
 }
+
 ul, ol { list-style: none;}
 
+#canvas {
+    display: block;
+    background: blue;
+}
 .actions {
     position: fixed;
     top: 10px;

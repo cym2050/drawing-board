@@ -7,3 +7,15 @@ body {
     display: block;
     background: aqua;
 }
+
+#eraser {
+    position: absolute; 
+    top: 40px;
+    left: 10px;
+}
+
+#brush {
+    position: absolute; 
+    top: 10px;
+    left: 10px;
+}

@@ -98,7 +98,7 @@ function listenToMouse () {
             var x = e.touches[0].clientX
             var y = e.touches[0].clientY
             if (eraserEnabled) {
-                context.clearRect(x-5, y-5, 10, 10)
+                context.clearRect(x-5, y-5, 15, 15)
             } else {
                 drawCircle( x, y, lineWidth/2)
                 lastPosition = { x: x, y: y }
@@ -110,7 +110,7 @@ function listenToMouse () {
             var y = e.touches[0].clientY
             if(!mousedown) { return }
             if (eraserEnabled) {
-                context.clearRect(x-5, y-5, 10, 10)
+                context.clearRect(x-5, y-5, 15, 15)
             } else {
                 drawCircle(x, y, lineWidth/2)
                 drawLine(lastPosition.x, lastPosition.y, x, y, lineWidth)
@@ -128,7 +128,7 @@ function listenToMouse () {
             var x = e.clientX
             var y = e.clientY
             if (eraserEnabled) {
-                context.clearRect(x-5, y-5, 10, 10)
+                context.clearRect(x-5, y-5, 15, 15)
             } else {
                 drawCircle( x, y, lineWidth/2)
                 lastPosition = { x: x, y: y }
@@ -140,7 +140,7 @@ function listenToMouse () {
             y = e.clientY
             if(!mousedown) { return }
             if (eraserEnabled) {
-                context.clearRect(x-5, y-5, 10, 10)
+                context.clearRect(x-5, y-5, 15, 15)
             } else {
                 drawCircle(x, y, lineWidth/2)
                 drawLine(lastPosition.x, lastPosition.y, x, y, lineWidth)

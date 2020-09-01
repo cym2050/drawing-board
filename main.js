@@ -39,7 +39,7 @@ save.onclick = function () {
 
 black.onclick = function () {
     context.fillStyle = 'black'
-    context.strokeStyle = black
+    context.strokeStyle = 'black'
     black.classList.add('active')
     red.classList.remove('active')
     yellow.classList.remove('active')
